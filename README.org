@@ -1,0 +1,7 @@
+#+title: Readme
+
+* Instalar y probar
+#+begin_src bash
+pnpm install
+pnpm run dev
+#+end_src
