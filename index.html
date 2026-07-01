@@ -1,68 +1,410 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EduPay Academy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#1c1b1b",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#191c1d",
+                        "surface-variant": "#efece4",
+                        "surface-dim": "#f4f1ea",
+                        "surface-tint": "#002147",
+                        "on-surface": "#1c1b1b",
+                        "tertiary": "#454748",
+                        "surface-container-high": "#efece4",
+                        "on-tertiary-container": "#d8d9da",
+                        "on-error-container": "#93000a",
+                        "surface": "#fdfbf7",
+                        "secondary-fixed-dim": "#f8bd32",
+                        "surface-container-lowest": "#fdfbf7",
+                        "surface-container": "#f4f1ea",
+                        "secondary-container": "#C5A059",
+                        "on-surface-variant": "#424654",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "secondary-fixed": "#ffdea1",
+                        "primary-fixed": "#dae2ff",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "surface-container-low": "#f9f7f2",
+                        "tertiary-container": "#5c5f60",
+                        "on-error": "#ffffff",
+                        "primary": "#002147",
+                        "on-secondary-fixed": "#261900",
+                        "on-secondary-container": "#ffffff",
+                        "primary-container": "#001a38",
+                        "error-container": "#ffdad6",
+                        "outline": "#737785",
+                        "secondary": "#C5A059",
+                        "on-primary-container": "#ffffff",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "on-primary-fixed": "#001847",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "background": "#fdfbf7",
+                        "inverse-primary": "#b2c5ff",
+                        "tertiary-fixed": "#e1e3e4",
+                        "on-background": "#1c1b1b",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "inverse-on-surface": "#f3f0ef",
+                        "outline-variant": "#c3c6d6",
+                        "surface-bright": "#fdfbf7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "xs": "4px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "headline-lg": ["'Playfair Display'", "serif"],
+                        "display-lg-mobile": ["'Playfair Display'", "serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-md": ["'Playfair Display'", "serif"],
+                        "display-lg": ["'Playfair Display'", "serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["'Playfair Display'", "serif"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7;
+            color: #1c1b1b;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-display-lg,
+        .font-headline-lg,
+        .font-headline-md {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .paypal-yellow {
+            background-color: #ffc439;
+            color: #1A1A1A;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-100 h-screen flex items-center justify-center">
-
-<div class="bg-white shadow-lg rounded-xl w-96 p-8">
-
-    <h1 class="text-3xl font-bold text-center mb-8">
-        Iniciar Sesión
-    </h1>
-
-    <form id="loginForm" class="space-y-5">
-
-        <div>
-            <label class="block mb-2 font-semibold">
-                Correo
-            </label>
-
-            <input
-                id="email"
-                type="email"
-                class="w-full border rounded-lg px-3 py-2"
-                required
-            >
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+    <!-- Navigation (TopNavBar) -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-sm border-b border-outline-variant/30 transition-all duration-300 ease-in-out">
+        <div class="flex justify-between items-center max-w-container-max mx-auto px-md h-16">
+            <div class="flex items-center gap-sm">
+                <img alt="EduPay Academy Logo" class="h-8 w-8 object-contain rounded-DEFAULT"
+                    src="https://lh3.googleusercontent.com/aida/AP1WRLt5pZL-kkyZHiQDXeN5Zp1ktiH6Kne7vGIfUYDibsjBGpkJjsCHQn9nZToN5BDwwdom96GiVVXS7Gv_bLqoWwhpThN3pDsuTDVHVcoqdbT9GFk3tJiq-MaXHtq1yk84KJYHpXZUVGDY5C3HdRmGzZ6aXFmWwTeHvTkGPuQBkg_s0LvLqlh9iA3g8jdQRJynKRQwPqEqk8rKqqZcVB_bf0o8DhygR0MgkwK8DFosXyZvVLLoHsj8AGRQA9Zv" />
+                <span
+                    class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">EduPay
+                    Academy</span>
+            </div>
+            <div class="hidden md:flex items-center gap-lg">
+                <a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary pb-1 font-label-md text-label-md"
+                    href="#">Cursos</a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors duration-200 font-label-md text-label-md"
+                    href="#">Precios</a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors duration-200 font-label-md text-label-md"
+                    href="#">Misión</a>
+                <a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors duration-200 font-label-md text-label-md"
+                    href="#">Sobre nosotros</a>
+            </div>
+            <div class="hidden md:flex items-center gap-sm">
+                <button
+                    class="px-md py-2 text-secondary font-label-md text-label-md border border-secondary rounded-lg hover:bg-surface-container-low transition-colors duration-200">Ver
+                    Cursos</button>
+                <button onclick="location.href='login.html'"
+                    class="px-md py-2 bg-secondary text-on-secondary font-label-md text-label-md rounded-lg hover:bg-[#b08d4b] transition-colors duration-200 shadow-sm">Iniciar
+                    Sesión</button>
+            </div>
+            <button class="md:hidden text-on-surface p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
         </div>
-
-        <div>
-
-            <label class="block mb-2 font-semibold">
-                Contraseña
-            </label>
-
-            <input
-                id="password"
-                type="password"
-                class="w-full border rounded-lg px-3 py-2"
-                required
-            >
-
+    </nav>
+    <!-- Main Content -->
+    <main class="flex-grow pt-24">
+        <!-- Hero Section -->
+        <section class="max-w-container-max mx-auto px-md py-xl md:py-24 relative overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute bottom-0 left-0 -ml-32 -mb-32 w-80 h-80 bg-secondary/5 rounded-full blur-3xl -z-10">
+            </div>
+            <div class="grid md:grid-cols-2 gap-xl items-center">
+                <div class="space-y-lg">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">
+                        <span class="material-symbols-outlined text-[16px]">school</span>
+                        Plataforma Educativa Moderna
+                    </div>
+                    <h1 class="font-display-lg text-display-lg text-on-surface leading-tight">
+                        Aprende hoy. Paga de forma segura. <span class="text-primary">Crece profesionalmente.</span>
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Encuentra cursos impartidos por profesores especializados y matricúlate en pocos minutos
+                        mediante una pasarela de pago segura con PayPal.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button onclick="location.href='login.html'"
+                            class="px-lg py-3 bg-secondary text-on-secondary font-label-md text-label-md rounded-lg shadow-md hover:bg-[#b08d4b] transition-all duration-200 flex items-center gap-2 hover:-translate-y-0.5">
+                            Iniciar Sesión
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </button>
+                        <button
+                            class="px-lg py-3 bg-transparent text-secondary border border-secondary font-label-md text-label-md rounded-lg hover:bg-surface-container-low transition-all duration-200">
+                            Ver Cursos
+                        </button>
+                    </div>
+                    <div class="pt-8 flex items-center gap-4 text-sm text-on-surface-variant font-label-sm">
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-green-600">check_circle</span> Pago Seguro</span>
+                        <span class="flex items-center gap-1"><span
+                                class="material-symbols-outlined text-green-600">check_circle</span> Acceso
+                            Inmediato</span>
+                    </div>
+                </div>
+                <div class="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl glass-panel">
+                    <img class="absolute inset-0 w-full h-full object-cover"
+                        data-alt="Professional corporate success team working together."
+                        src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    <!-- Floating abstract UI elements to simulate learning/payment -->
+                    <div class="absolute bottom-8 right-8 bg-surface p-4 rounded-xl shadow-lg border border-surface-container-high flex items-center gap-4 animate-bounce"
+                        style="animation-duration: 3s;">
+                        <div
+                            class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                            <span class="material-symbols-outlined text-white">payments</span>
+                        </div>
+                        <div>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant">Pago Seguro</p>
+                            <p class="font-label-md text-label-md font-bold text-on-surface">PayPal verificado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Features Section -->
+        <section class="bg-surface-container-lowest py-xl border-y border-outline-variant/20">
+            <div class="max-w-container-max mx-auto px-md">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">¿Por qué elegir EduPay Academy?</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Nuestra plataforma
+                        está diseñada para ofrecer la mejor experiencia educativa, combinando contenido de alta calidad
+                        con un proceso de matrícula sin fricciones.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-lg">
+                    <!-- Feature 1 -->
+                    <div
+                        class="bg-surface p-8 rounded-2xl border border-surface-container-high card-shadow hover-lift flex flex-col items-start gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[32px]">workspace_premium</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Cursos de Calidad</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Cursos impartidos por profesores
+                            especializados, diseñados para impulsar tu carrera profesional con contenido actualizado y
+                            práctico.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div
+                        class="bg-surface p-8 rounded-2xl border border-surface-container-high card-shadow hover-lift flex flex-col items-start gap-4">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[32px]">shield_lock</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Pago Seguro</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Integración total con PayPal
+                            Sandbox para garantizar una experiencia de compra completamente segura y confiable para
+                            todos los estudiantes.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div
+                        class="bg-surface p-8 rounded-2xl border border-surface-container-high card-shadow hover-lift flex flex-col items-start gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[32px]">bolt</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Acceso Inmediato</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Una vez confirmado el pago, el
+                            estudiante queda matriculado automáticamente en la plataforma, pudiendo iniciar su
+                            aprendizaje sin demoras.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Vision & Mission Bento Grid -->
+        <section class="py-xl max-w-container-max mx-auto px-md">
+            <div class="grid md:grid-cols-12 grid-rows-2 gap-md h-auto md:h-[600px]">
+                <!-- Vision (Large span) -->
+                <div class="md:col-span-7 row-span-2 relative rounded-2xl overflow-hidden group">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Professionals in a serious meeting studying corporate success."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGACxZhxXbMTucS9OBVAocOdXkGdQMGDWNAIND_I4QpA1DHYYmRnTeBQnRQDGi3UroOJ1hmglietJjlGK1SixultPTGsqoY_uXa5zxQkI__zzRQu7O7pRbXosJ6txe0wKpMaXvpuLxPmTzNlUmE1EvgIg_fpEEH-aGb1s_mGQNUxWi8ijn7ipGO_rDuXdYGukg0r4FPnSEErL8pjQ5_gz5MjhwdfdSBEKmQrnKzN_zH2ZVXn4qdd1KPD7EShsT7DtcRqGxJ1HsH_Aw" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10 space-y-4">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface/20 backdrop-blur-md text-white font-label-sm text-label-sm border border-white/20">
+                            <span class="material-symbols-outlined text-[16px]">visibility</span>
+                            Perspectiva
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg text-white">Nuestra Visión</h2>
+                        <p class="font-body-lg text-body-lg text-white/90 max-w-lg">
+                            Ser una plataforma educativa reconocida por ofrecer una experiencia sencilla, segura y
+                            accesible para que cualquier persona pueda desarrollar nuevas habilidades mediante cursos de
+                            calidad.
+                        </p>
+                    </div>
+                </div>
+                <!-- Mission (Top right) -->
+                <div
+                    class="md:col-span-5 row-span-1 bg-surface-container p-8 rounded-2xl flex flex-col justify-center border border-surface-container-high card-shadow hover-lift">
+                    <div class="space-y-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-2">
+                            <span class="material-symbols-outlined text-[24px]">rocket_launch</span>
+                        </div>
+                        <h2 class="font-headline-md text-headline-md text-on-surface">Nuestra Misión</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Facilitar el acceso a la educación digital mediante una plataforma intuitiva que permita
+                            descubrir cursos, realizar pagos seguros y gestionar las matrículas de forma eficiente.
+                        </p>
+                    </div>
+                </div>
+                <!-- Decorative Call to Action (Bottom right) -->
+                <div
+                    class="md:col-span-5 row-span-1 bg-primary text-on-primary p-8 rounded-2xl flex flex-col justify-center items-start overflow-hidden relative">
+                    <!-- Background pattern -->
+                    <div class="absolute top-0 right-0 opacity-10">
+                        <span class="material-symbols-outlined" style="font-size: 200px;">school</span>
+                    </div>
+                    <div class="relative z-10 space-y-4">
+                        <h3 class="font-headline-md text-headline-md">¿Listo para empezar?</h3>
+                        <p class="font-body-md text-body-md text-on-primary/80">Únete a miles de estudiantes y comienza
+                            tu viaje de aprendizaje hoy mismo.</p>
+                        <button
+                            class="mt-4 px-6 py-2 bg-secondary text-on-secondary font-label-md text-label-md rounded-lg shadow-sm hover:bg-[#b08d4b] transition-colors font-bold">
+                            Explorar Catálogo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-xl">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-md">
+            <!-- Brand Column -->
+            <div class="col-span-1 md:col-span-2 space-y-4">
+                <div class="flex items-center gap-sm">
+                    <img alt="EduPay Academy Logo" class="h-8 w-8 object-contain rounded-DEFAULT"
+                        src="https://lh3.googleusercontent.com/aida/AP1WRLt5pZL-kkyZHiQDXeN5Zp1ktiH6Kne7vGIfUYDibsjBGpkJjsCHQn9nZToN5BDwwdom96GiVVXS7Gv_bLqoWwhpThN3pDsuTDVHVcoqdbT9GFk3tJiq-MaXHtq1yk84KJYHpXZUVGDY5C3HdRmGzZ6aXFmWwTeHvTkGPuQBkg_s0LvLqlh9iA3g8jdQRJynKRQwPqEqk8rKqqZcVB_bf0o8DhygR0MgkwK8DFosXyZvVLLoHsj8AGRQA9Zv" />
+                    <span
+                        class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">EduPay
+                        Academy</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant max-w-sm mt-4">
+                    © UCR 2026 Proyecto final de Lenguajes IF4101 <br />
+                    Roger Alejandro Salazar Castro - B15980 <br />
+                    Jefferson Fuentes Quirós - C4F249 <br />
+                    Hillary
+                </p>
+            </div>
+            <!-- Links Column -->
+            <div class="col-span-1">
+                <h4 class="font-label-md text-label-md text-on-surface font-bold mb-4 uppercase tracking-wider">
+                    Plataforma</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-body-md text-body-md text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-secondary transition-colors"
+                            href="#">Inicio</a></li>
+                    <li><a class="font-body-md text-body-md text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-secondary transition-colors"
+                            href="login.html">Iniciar Sesión</a></li>
+                    <li><a class="font-body-md text-body-md text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-secondary transition-colors"
+                            href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <!-- Payment Badges -->
+            <div class="col-span-1">
+                <h4 class="font-label-md text-label-md text-on-surface font-bold mb-4 uppercase tracking-wider">Pagos
+                    Seguros</h4>
+                <div class="flex flex-wrap gap-2">
+                    <div
+                        class="px-3 py-1 rounded bg-surface-container border border-surface-container-high flex items-center gap-1 text-sm font-label-sm">
+                        <span class="material-symbols-outlined text-[16px] text-blue-600">verified</span>
+                        PayPal
+                    </div>
+                    <div
+                        class="px-3 py-1 rounded bg-surface-container border border-surface-container-high flex items-center gap-1 text-sm font-label-sm">
+                        <span class="material-symbols-outlined text-[16px] text-green-600">lock</span>
+                        SSL Seguro
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <button
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg"
-        >
-            Entrar
-        </button>
-
-    </form>
-
-    <p
-        id="error"
-        class="text-red-600 mt-4 text-center"
-    ></p>
-
-</div>
-
-<script type="module" src="/src/main.js"></script>
-<script type="module" src="/src/js/login.js"></script>
-
+    </footer>
 </body>
+
 </html>
